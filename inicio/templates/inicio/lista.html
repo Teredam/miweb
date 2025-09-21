@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - Mensajes</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .sidebar {
+            height: 100vh;
+            background: #343a40;
+            color: white;
+            padding-top: 20px;
+        }
+        .sidebar a {
+            color: white;
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+        }
+        .sidebar a:hover {
+            background: #495057;
+        }
+        .content {
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="d-flex">
+    <!-- Sidebar -->
+    <div class="sidebar col-2">
+        <h4 class="text-center">📊 Dashboard</h4>
+        <a href="/">Formulario</a>
+        <a href="/mensajes/">Mensajes</a>
+    </div>
+
+    <!-- Contenido -->
+    <div class="content col-10">
+        <h2 class="mb-4">📩 Mensajes Recibidos</h2>
+
+        {% if contactos %}
+            <table class="table table-hover table-bordered shadow-sm bg-white">
+                <thead class="table-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Mensaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for contacto in contactos %}
+                        <tr>
+                            <td>{{ forloop.counter }}</td>
+                            <td>{{ contacto.nombre }}</td>
+                            <td>{{ contacto.email }}</td>
+                            <td>{{ contacto.mensaje }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <div class="alert alert-info">No hay mensajes aún.</div>
+        {% endif %}
+    </div>
+</div>
+
+</body>
+</html>
