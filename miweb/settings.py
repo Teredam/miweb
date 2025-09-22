@@ -41,6 +41,10 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = 'miweb.urls'
 
+LOGIN_REDIRECT_URL = "dashboard"
+LOGOUT_REDIRECT_URL = "home"
+
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

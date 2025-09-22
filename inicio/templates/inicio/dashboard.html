@@ -1,0 +1,32 @@
+<!-- {% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Bienvenido {{ user.username }}</h2>
+<p>Este es tu panel personal.</p>
+
+<p><a href="{% url 'password_change' %}">Cambiar contraseña</a></p>
+<p><a href="{% url 'logout' %}">Cerrar sesión</a></p>
+{% endblock %} -->
+
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<h2>Bienvenido {{ user.username }}</h2>
+<p>Rol: {{ role }}</p>
+
+{% if role == "superadmin" %}
+    <h3>Panel Super Administrador</h3>
+    <p>Puedes ver y administrar todos los usuarios, mensajes y configuraciones.</p>
+{% elif role == "staff" %}
+    <h3>Panel Staff</h3>
+    <p>Puedes ver mensajes y reportes limitados.</p>
+{% else %}
+    <h3>Panel Usuario</h3>
+    <p>Bienvenido a tu panel personal. Aquí puedes cambiar tu contraseña y ver tu información.</p>
+{% endif %}
+
+<p><a href="{% url 'password_change' %}">Cambiar contraseña</a></p>
+<p><a href="{% url 'logout' %}">Cerrar sesión</a></p>
+{% endblock %}
