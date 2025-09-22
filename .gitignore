@@ -1,0 +1,48 @@
+# ==========================
+# Django .gitignore
+# ==========================
+
+# Archivos de Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+
+# Archivos de base de datos (no subir tu DB local)
+db.sqlite3
+
+# Migraciones automáticas (puedes subirlas si quieres compartir estructura)
+# inicio/migrations/*.py
+# ¡Ojo! deja __init__.py en migrations
+*.log
+
+# Archivos de entorno y configuración
+.env
+*.env
+.env.local
+.env.*.local
+
+# Entorno virtual
+venv/
+ENV/
+env/
+.venv/
+
+# Archivos de IDE
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
+
+# Archivos de Render / despliegue
+*.sqlite3
+*.pyc
